@@ -5,7 +5,7 @@ services:
     ports:
       - 7777:8888
     volumes:
-      - ./analysis:/home/jovyan/work
+      - ./analysis:/home/jovyan/work:consistent
     environment:
       - JUPYTER_TOKEN=hi
       #GRANT_SUDO: "yes"

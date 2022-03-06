@@ -10,13 +10,11 @@ FROM jupyter/base-notebook
 
 USER root
 
-RUN python3 -m pip install --no-cache-dir --upgrade pip && \
-    python3 -m pip install --no-cache-dir \
-    jupyter \
-    sklearn \ 
-    seaborn \
-    mlxtend \
-    statsmodels
+COPY ./requirements.txt requirements.txt
+
+RUN python3 -m pip install --no-cache-dir --upgrade pip  
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 USER ${NB_USER}
 
