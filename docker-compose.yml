@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  data_analysis:
+    build: .
+    ports:
+      - 7777:8888
+    volumes:
+      - ./analysis:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=hi
+      #GRANT_SUDO: "yes"
+    # enable sudo permissions
+    user: "root"
+    restart: always
